@@ -1,0 +1,43 @@
+﻿@model IEnumerable<metaData.Models.Soldier>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create new", "Create")
+</p>
+<table calss="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ETS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soldierId)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ETS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soldierId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.soldierId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.soldierId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.soldierId })
+            </td>
+        </tr>
+    }
+    </table>
